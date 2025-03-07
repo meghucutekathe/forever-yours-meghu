@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Countdown to July 27</title>
+    <title>Countdown to 4:30 PM Today</title>
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;700&display=swap" rel="stylesheet">
     <style>
         body {
@@ -13,8 +13,8 @@
             justify-content: center;
             align-items: center;
             height: 100vh;
-            background: rgba(0, 0, 0, 0.6);
-            backdrop-filter: blur(10px);
+            background: rgba(0, 0, 0, 0.2); /* More transparent background */
+            backdrop-filter: blur(15px);
             flex-direction: column;
             text-align: center;
             color: white;
@@ -22,26 +22,26 @@
         }
 
         .countdown-container {
-            background: rgba(255, 255, 255, 0.2);
+            background: rgba(255, 255, 255, 0.15);
             backdrop-filter: blur(10px);
-            padding: 15px;
-            border-radius: 15px;
-            text-align: center;
+            padding: 10px 15px;
+            border-radius: 10px;
             box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
             color: white;
-            font-size: 20px;
+            font-size: 16px;
             font-weight: bold;
+            max-width: 90%; /* Fit for mobile */
         }
 
         #gift-box {
-            font-size: 50px;
+            font-size: 35px; /* Smaller text for mobile */
             cursor: pointer;
             margin-top: 20px;
         }
 
         #letter {
             display: none;
-            background: rgba(0, 0, 0, 0.8);
+            background: rgba(0, 0, 0, 0.7);
             padding: 20px;
             border-radius: 10px;
             color: white;
@@ -53,7 +53,7 @@
 </head>
 <body>
     <div class="countdown-container">
-        <p>⏳ Countdown to July 27 ⏳</p>
+        <p>⏳ Countdown to 4:30 PM Today ⏳</p>
         <p id="countdown"></p>
     </div>
 
@@ -62,7 +62,7 @@
     <div id="letter">
         <h2>My Dearest Meghu,</h2>
         <p>
-            First, I just want to say <b>thank you for waiting</b>. By the time you open this, it will be your special day—
+            First, I just want to say <b>thank you for waiting</b>. By the time you open this, it will be your special day— 
             <b>July 27th</b>, the day the world was blessed with your presence. I know waiting isn't always easy, but you did, and that means the world to me.
         </p>
         <p>
@@ -94,17 +94,18 @@
 
     <script>
         function updateCountdown() {
-            const eventDate = new Date("July 27, 2025 00:00:00").getTime();
             const now = new Date().getTime();
-            const timeLeft = eventDate - now;
+            const eventTime = new Date();
+            eventTime.setHours(16, 30, 0, 0);  // Set the time to 4:30 PM today
 
-            const days = Math.floor(timeLeft / (1000 * 60 * 60 * 24));
-            const hours = Math.floor((timeLeft % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+            const timeLeft = eventTime - now;
+
+            const hours = Math.floor(timeLeft / (1000 * 60 * 60));
             const minutes = Math.floor((timeLeft % (1000 * 60 * 60)) / (1000 * 60));
             const seconds = Math.floor((timeLeft % (1000 * 60)) / 1000);
 
             if (timeLeft > 0) {
-                document.getElementById("countdown").innerHTML = `${days}d ${hours}h ${minutes}m ${seconds}s`;
+                document.getElementById("countdown").innerHTML = `${hours}h ${minutes}m ${seconds}s`;
             } else {
                 document.getElementById("countdown").innerHTML = "🎉 Time's Up! 🎉";
                 document.getElementById("gift-box").innerHTML = "🎁 (Unlocked!) Click to Open";

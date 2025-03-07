@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Countdown to July 27</title>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;700&display=swap" rel="stylesheet">
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            background: rgba(0, 0, 0, 0.6);
+            backdrop-filter: blur(10px);
+            flex-direction: column;
+            text-align: center;
+            color: white;
+            font-family: 'Poppins', sans-serif;
+        }
+
+        .countdown-container {
+            background: rgba(255, 255, 255, 0.2);
+            backdrop-filter: blur(10px);
+            padding: 15px;
+            border-radius: 15px;
+            text-align: center;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
+            color: white;
+            font-size: 20px;
+            font-weight: bold;
+        }
+
+        #gift-box {
+            font-size: 50px;
+            cursor: pointer;
+            margin-top: 20px;
+        }
+
+        #letter {
+            display: none;
+            background: rgba(0, 0, 0, 0.8);
+            padding: 20px;
+            border-radius: 10px;
+            color: white;
+            margin-top: 20px;
+            max-width: 80%;
+            font-family: 'Poppins', sans-serif;
+        }
+    </style>
+</head>
+<body>
+    <div class="countdown-container">
+        <p>⏳ Countdown to July 27 ⏳</p>
+        <p id="countdown"></p>
+    </div>
+
+    <div id="gift-box">🎁 (Locked)</div>
+
+    <div id="letter">
+        <h2>My Dearest Meghu,</h2>
+        <p>
+            First, I just want to say <b>thank you for waiting</b>. By the time you open this, it will be your special day—
+            <b>July 27th</b>, the day the world was blessed with your presence. I know waiting isn't always easy, but you did, and that means the world to me.
+        </p>
+        <p>
+            Meghu, I love you <b>more than words can ever express</b>. You are the light in my life, the reason behind my smiles, and the warmth in my heart.
+            From the moment you became a part of my world, everything changed. You made me believe in love again, in happiness, in the beauty of waiting for the right person.
+            And that person is <b>you</b>.
+        </p>
+        <p>
+            I don't just love you for how beautiful you are—I love you for the <b>kind heart</b> you have, for the way you understand me, for the way you make even the hardest days feel lighter.
+            You are my <b>safe place</b>, the one person I can always count on, the one who makes my world feel complete.
+        </p>
+        <p>
+            You know, I often think about our future. A life where I wake up every day knowing that <b>you are mine and I am yours</b>.
+            I dream of the moments when I'll get to take care of you, support you, celebrate your successes, and hold you through your struggles.
+            I promise, no matter what happens, I will always <b>choose you</b>—again and again, every single day.
+        </p>
+        <p>
+            I want you to know that <b>you are the greatest blessing in my life</b>.
+            If I ever fail to show it, if I ever fall short in expressing it, please remember this letter.
+            You are my everything, Meghu, and I will love you till my last breath and beyond.
+        </p>
+        <p>
+            So on this special day, I just want to say: <b>Happy Birthday, my love!</b>
+            May this year bring you as much happiness as you bring into my life.
+            And remember, no matter where life takes us, my heart will always belong to you.
+        </p>
+        <p><b>With all my love,</b><br> Your Puttu ❤️</p>
+    </div>
+
+    <script>
+        function updateCountdown() {
+            const eventDate = new Date("July 27, 2025 00:00:00").getTime();
+            const now = new Date().getTime();
+            const timeLeft = eventDate - now;
+
+            const days = Math.floor(timeLeft / (1000 * 60 * 60 * 24));
+            const hours = Math.floor((timeLeft % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+            const minutes = Math.floor((timeLeft % (1000 * 60 * 60)) / (1000 * 60));
+            const seconds = Math.floor((timeLeft % (1000 * 60)) / 1000);
+
+            if (timeLeft > 0) {
+                document.getElementById("countdown").innerHTML = `${days}d ${hours}h ${minutes}m ${seconds}s`;
+            } else {
+                document.getElementById("countdown").innerHTML = "🎉 Time's Up! 🎉";
+                document.getElementById("gift-box").innerHTML = "🎁 (Unlocked!) Click to Open";
+                document.getElementById("gift-box").style.cursor = "pointer";
+                document.getElementById("gift-box").onclick = function() {
+                    document.getElementById("letter").style.display = "block";
+                    document.getElementById("gift-box").style.display = "none";
+                };
+            }
+        }
+
+        setInterval(updateCountdown, 1000);
+        updateCountdown();
+    </script>
+</body>
+</html>

@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Countdown to 4:45 PM Today</title>
+    <title>Countdown to July 27, 2025, 4:45 PM</title>
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;700&display=swap" rel="stylesheet">
     <style>
         body, html {
@@ -44,7 +44,7 @@
 </head>
 <body>
     <div class="countdown-container">
-        <p>⏳ Countdown to 4:45 PM Today ⏳</p>
+        <p>⏳ Countdown to July 27, 2025, 4:45 PM ⏳</p>
         <p id="countdown"></p>
     </div>
     <div id="gift-box">🎁 (Locked)</div>
@@ -59,8 +59,7 @@
     <script>
         function updateCountdown() {
             const now = new Date().getTime();
-            const eventTime = new Date();
-            eventTime.setHours(16, 45, 0, 0);
+            const eventTime = new Date('2025-07-27T16:45:00'); // Set to July 27, 2025, 4:45 PM
             const timeLeft = eventTime - now;
             const hours = Math.floor(timeLeft / (1000 * 60 * 60));
             const minutes = Math.floor((timeLeft % (1000 * 60 * 60)) / (1000 * 60));
